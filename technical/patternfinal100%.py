@@ -1,7 +1,7 @@
 def sub(a,b):
     return a-b
 def pattern(n,down):
-    if sub(n,down):
+    if down:
         print(sub(n,down),end=" ")
         pattern(n,sub(down,1))
         print(sub(n,down),end=" ")
