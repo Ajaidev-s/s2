@@ -24,8 +24,10 @@ class program2
 	  	   
 	  	   Product[] pro;
 	  	   pro=new Product[3];
+	  	   Product hi=new Product();
 	  	   for(;i<3;i++)
 	  	   	{
+	  	   	  pro[i]=new Product();
 	  	   	  System.out.println("enter the pcode of"+(i+1)+"th product");
 	  	   	  code=s.nextInt();
 	  	   	  s.nextLine();
@@ -33,7 +35,7 @@ class program2
 	  	   	  name=s.nextLine();
 	  	   	  System.out.println("enter the price of"+(i+1)+"th product");
 	  	   	  price=s.nextDouble();
-	  	   	  s.nextLine();
+	  	   	  System.out.println(code+name+price);
 	  	   	  pro[i].getproduct(code,name,price);
 	  	   	  
 	  	   	}
@@ -52,3 +54,29 @@ class program2
 	  	   
 	  	}
 	}
+	
+/*output
+enter the pcode of1th product
+1
+enter the name of1th product
+Ajai
+enter the price of1th product
+89
+1Ajai89.0
+enter the pcode of2th product
+2
+enter the name of2th product
+Ajman
+enter the price of2th product
+30
+2Ajman30.0
+enter the pcode of3th product
+3
+enter the name of3th product
+ANU
+enter the price of3th product
+999
+3ANU999.0
+The product having minimum price is 
+ name Ajman      having price 30.0
+*/
