@@ -7,6 +7,7 @@ class program4
 	  	  this wont work in java
 	  	  int m1[10][10],m2[10][10],m3[10][10];
 	  	  */
+	  
 	  	  int[][] m1 = new int[10][10];
                   int[][] m2 = new int[10][10];
                   int[][] m3 = new int[10][10];
