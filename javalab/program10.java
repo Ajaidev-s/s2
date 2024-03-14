@@ -22,13 +22,14 @@ class program10
 	  public static void main(String args[])
 	  	{
 	  	   Scanner s=new Scanner(System.in);
-	  	   int i=0,eno,n=3;
+	  	   int i=0,eno,n=3,search,flag=0;
 	  	   String ename;
 	  	   double salary;
 	  	   //declaring array of product
-	  	   
 	  	   Employee[] emp;
 	  	   emp=new Employee[10];
+	  	   System.out.println("enter the number of employees");
+	  	   n=s.nextInt();
 	  	   for(;i<n;i++)
 	  	   	{
 	  	   	  emp[i]=new Employee();
@@ -43,48 +44,55 @@ class program10
 	  	   	  emp[i].getemp(eno,ename,salary);
 	  	   	  
 	  	   	}
-	  	  /* Double min=pro[0].price;
-	  	   name=pro[0].pname;
-	  	   */
+	  	   System.out.println("enter eno of employee to be searched");
+	  	   search=s.nextInt();
+	  	   
+	  	   
 	  	   for(i=0;i<n;i++)
 	  	   	{
-	  	   	 emp[i].show();
-	  	   	  /*
-	  	   	  if(min>pro[i].price)
-	  	   	  	{
-	  	   	  	   min=pro[i].price;
-	  	   	  	   name=pro[i].pname;
-	  	   	  	}
-	  	   	   */  	
+	  	   	if(emp[i].eno==search)
+	  	   		{
+	  	   	 	   emp[i].show();
+	  	   	 	   flag=1;
+	  	   	        } 	
 	  	   	}
-	  	   	
-	  	  // System.out.println("The product having minimum price is \n name "+name+"\t having price "+min);
+	  	   if(flag==0)
+	  	   	{
+	  	   	  System.out.println("invalid employee number");
+	  	   	}
+
 	  	   
 	  	}
 	}
 	
 /*output
-enter the pcode of1th product
-1
-enter the name of1th product
-Ajai
-enter the price of1th product
-89
-1Ajai89.0
-enter the pcode of2th product
-2
-enter the name of2th product
-Ajman
-enter the price of2th product
-30
-2Ajman30.0
-enter the pcode of3th product
+enter the number of employees
 3
-enter the name of3th product
-ANU
-enter the price of3th product
-999
-3ANU999.0
-The product having minimum price is 
- name Ajman      having price 30.0
+enter the eno of1th employee
+11
+enter the ename of1th employee
+ajai dev
+enter the salary of1th employee
+10000
+11ajai dev10000.0
+enter the eno of2th employee
+12
+enter the ename of2th employee
+ajay
+enter the salary of2th employee
+35000
+12ajay35000.0
+enter the eno of3th employee
+13
+enter the ename of3th employee
+ajith
+enter the salary of3th employee
+45000
+13ajith45000.0
+enter eno of employee to be searched
+12
+employee number: 12
+employee name: ajay
+ salary: 35000.0
+
 */
