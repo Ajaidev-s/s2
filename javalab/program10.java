@@ -69,6 +69,8 @@ class Teacher extends Employee
 	  	  //this(name,address,gender,age,emp_id,company_name,qualification,salary,teacher_id,department,subject);
 	  	}
 	}
+// program 10.2
+
 class Program10
 	{
 	  public static void main(String args[])
