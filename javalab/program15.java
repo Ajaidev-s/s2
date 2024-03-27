@@ -1,3 +1,4 @@
+import java.util.Scanner;
 class Fibanoci implements Runnable
 	{
 	   private int count;
@@ -5,6 +6,7 @@ class Fibanoci implements Runnable
 	   	{
 	   	  this.count=count;
 		}
+	   //below thing(@Override isnt necessary its like coding conventions like comments just to mentioning we are overiding a method
 	   @Override
 	   public void run()
 	   	{
@@ -12,16 +14,63 @@ class Fibanoci implements Runnable
 	   	  System.out.println("Fibonacci numbers: ");
 	   	  for(int i=0;i<count;i++)
 	   	  	{
-	   	  	  System.out.println("Fibanacci series: ");
+	   	  	  System.out.println("Fibanacci series: "+a);
 	   	  	  temp=a+b;
 	   	  	  a=b;
 	   	  	  b=temp;
 	   	  	}
 	   	}
 	}
+class Even implements Runnable
+	{
+	  private int start;
+	  private int end;
+	  public Even(int start,int end)
+	  	{
+	  	  this.start=start;
+	  	  this.end=end;
+	  	}
+	  public void run()
+	  	{
+	  	  int num=start;
+	  	  System.out.println("Even numbers between "+start+" and "+end);
+	  	  if(end>=start)
+	  	  	{
+	  	  	  for(;num<=end;num++)
+	  	  	  	{
+	  	  	  	  if(num%2==0)
+	  	  	  	  	{
+	  	  	  	  	  System.out.println("even number : "+num);
+	  	  	  	  	}
+	  	  	  	}
+	  	  	  
+	  	  	}
+	  	  else
+	  	  	{
+	  	  	  System.out.println("the Range is ill defined");
+	  	  	}
+	  	}
+	}
 class program15
 	{
-	   public static void main(String args[])
+	   //the throws isnt necessary just included to call functions like sleep for thread
+	   public static void main(String args[]) throws InterruptedException
+	   	{
+	   	   Scanner s=new Scanner(System.in);
+	   	   int fib,e_start,e_end;
+	   	   System.out.println("enter the no of fibnacci series");
+	   	   fib=s.nextInt();
+	   	   System.out.println("enter the range for even numbers");
+	   	   e_start=s.nextInt();
+	   	   e_end=s.nextInt();
+	   	   Thread fibThread=new Thread(new Fibanoci(fib));
+	   	   //start thread
+	   	   fibThread.start();
+	   	   Thread evenThread=new Thread(new Even(e_start,e_end));
+	   	   //start thread 
+	   	   //both thread runs simultaniously we can use sleep before run method to adjust things
+	   	   evenThread.start();
+	   	}
 	   
 	}
 	
@@ -82,5 +131,24 @@ public class Main {
         evenNumberThread.start();
     }
 }
+
+*/
+
+/*
+Thread Methods:
+Here are some commonly used methods for managing threads:
+start(): Starts the thread, scheduling it to execute its run() method.
+getState(): Returns the state of the thread (e.g., NEW, RUNNABLE, WAITING, etc.).
+getName(): Returns the name of the thread.
+getPriority(): Returns the priority of the thread.
+sleep(long millis): Pauses the thread execution for the specified time (in milliseconds).
+join(): Stops the current thread until the called thread terminates.
+Thread States:
+Threads can be in various states during their lifetime:
+New State: A thread is in this state before it starts executing.
+Active State: The thread is actively executing its run() method.
+Waiting/Blocked State: The thread is waiting for a resource or condition.
+Timed Waiting State: Similar to waiting, but with a timeout.
+Terminated State: The thread has finished executing (either by returning from run() or due to an unhandled exception).
 
 */
