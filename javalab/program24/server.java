@@ -33,4 +33,5 @@ public class server {
         }
     }
 }
-
+//sudo ufw allow 5000
+//to allow port for connection over local network
