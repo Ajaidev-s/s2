@@ -15,9 +15,9 @@ for ((i=0; i<limit; ++i)); do
 done
 
 # Sort array and store it in a new array
-#IFS=$'\n'
+IFS=$'\n'
  sorted=($(sort <<< "${arr[*]}"))
-#unset IFS
+unset IFS
 
 # Display sorted array
 echo "The sorted array is:"
